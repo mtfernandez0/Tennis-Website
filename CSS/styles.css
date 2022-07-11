@@ -7,27 +7,24 @@
 }
 
 body{
-    background-color: darkgray;
-    font-family: 'Roboto', sans-serif;
+    background-color: #D8D8D8;
+    font-family: 'Roboto', sans-serif, monospace;
 }
 
 /* NAVBAR */
 
-nav{
-    background: rgb(30, 27, 44);
-}
-
-.nav-links{
+.navbar{
     display: flex;
-    justify-content: space-between;
-    /* justify-content: flex-end; */
+    justify-content: center;
     align-items: center;
+    background: rgb(30, 27, 44);
     padding: 30px 10%;
+    max-height: 15%;
 }
 
 .nav-links li{
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 50px;
 }
 
 .nav-links li a{
@@ -44,22 +41,121 @@ nav{
 /* FRONT PAGE */
 
 .front-page {
-    background: rgba(34, 38, 104, 0.8);
-    margin: 0 5% 0 5%;
-    border: rgba(250, 100, 100, 0.8) solid 10px;
-    position: relative;
+    background: linear-gradient(to right, #09162C, #0d316e);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
+    margin: 0 5%;
+    display: flex;
 }
 
-.photo{
+.img-background{
     margin: 0 5% 0 5%;
     height: 410px;
 }
 
-.info {
+.info-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 40px;
     color: white;
-    position: absolute;
-} 
+}
 
+.info-container .info img{
+    height: 75px;
+}
+
+.info h3{
+    font-size: 1.7rem;
+}
+
+/*RANKINGS*/
+
+.ranking-banner{
+    margin: 2% 5% 0 5%;
+    padding: 40px;
+    padding-bottom: 0;
+    background-color: #09162C;
+    color: white;
+    border: none;
+    border-radius: 20px 20px 0 0;
+    border: 2px solid #222;
+    box-shadow: 0 6px 10px 0 rgba(11, 11, 11, 1);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.ranking-banner h1{
+    padding-bottom: 20px;
+}
+
+.ranking-titles{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ranking-titles a{
+    padding: 10px 5px;
+    border: 2px solid #1b2347;
+    border-bottom: 0;
+    box-shadow: 5px 0 11px 0 #1b2347;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    color: white;
+}
+
+.ranking-titles a:hover{
+    box-shadow: 5px 0px 19px 5px;
+    color: white;
+}
+
+.rankings {
+    margin: 0 5% 2% 5%;
+    background-color: white;
+    border: 1px solid #222;
+    box-shadow: 0 6px 10px 0 rgba(11, 11, 11, 1);
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #222;
+}
+
+.table thead{
+    background-color: rgb(221, 221, 221);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
+    border: 1px solid black;
+}
+
+.table td, th{
+    padding: 10px 0;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#rank, #age{
+    width: 100px;
+}
+
+#player{
+    width: 400px;
+}
+
+#points, #titles{
+    width: 150px;
+}
+
+#record, #grand-slams{
+    width: 404px;
+}
+
+@media only screen and (max-width: 625px) {
+
+}
 
 
 /*

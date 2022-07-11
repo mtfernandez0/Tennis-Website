@@ -4,36 +4,163 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tennis WebSite</title>
+    <title>Tennis Statistics</title>
     <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+    <!-- <link rel="stylesheet" media="(max-width: 800px)" href="example.css" /> -->
 </head>
 <body>
-    
-    <nav>
-        <div class="nav-center">
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">products</a></li>
-                <li><a href="#">contact us</a></li>
-            </ul>
-        </div>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Rankings</a></li>
+            <li><a href="/">Statistics</a></li>
+            <li><a href="/">Current Tournaments</a></li>
+        </ul>
     </nav>
 
     <div class="front-page">
-        <img src="https://www.atptour.com/-/media/tennis/players/gladiator/2019/02/25/18/13/djokovic_full_ao19.png" alt="Not found" class="photo">
-        <span class="info">
-            <h1>Novak Djokoviç</h1>
-            <h1>Ranking: 3</h1>
-            <h1>Atp points: 0000</h1>
-        </span>
-    </div>
-        
+        <img src="https://www.atptour.com/-/media/tennis/players/gladiator/2019/02/25/18/13/djokovic_full_ao19.png" alt="Not found" class="img-background">
 
+        <div class="info-container">
+            <span class="info">
+                <img src="https://imgs.search.brave.com/XEQWZ6Q427uTYHrAQeKcVY1-QZg4ZEHsi0L69A7eiso/rs:fit:1200:1080:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDMwMjM2/MTUuanBn" alt="">
+                <h1>Novak Djokoviç</h1>
+                <h3>Ranking: 3</h3>
+                <h3>Points: 6770</h3>
+            </span>
+        </div>
+    </div>
+    
+    <div class="ranking-banner">
+        <h1>Singles Men/Women Ranking</h1>
+        <div class="ranking-titles">
+            <a href="/"><h3>Singles Men</h3></a>
+            <a href="/"><h3>Singles Women</h3></a>
+        </div>
+    </div>
+
+
+    <div class="rankings">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th id="rank">Rank</th>
+                    <th id="player">Player</th>
+                    <th id="points">Points</th>
+                    <th id="age">Age</th>
+                    <th id="record">Record</th>
+                    <th id="titles">Titles</th>
+                    <th id="grand-slams">Grand Slams</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>1</td>
+                <td>Danil Mevdedev</td>
+                <td>7955</td>
+                <td>26</td>
+                <td>249-109</td>
+                <td>13</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Alexander Zverev</td>
+                <td>7030</td>
+                <td>25</td>
+                <td>249-109</td>
+                <td>19</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Novak Djokovic</td>
+                <td>6770</td>
+                <td>34</td>
+                <td>1005-204</td>
+                <td>87</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Danil Mevdedev</td>
+                <td>7955</td>
+                <td>26</td>
+                <td>249-109</td>
+                <td>13</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Alexander Zverev</td>
+                <td>7030</td>
+                <td>25</td>
+                <td>249-109</td>
+                <td>19</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Novak Djokovic</td>
+                <td>6770</td>
+                <td>34</td>
+                <td>1005-204</td>
+                <td>87</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Danil Mevdedev</td>
+                <td>7955</td>
+                <td>26</td>
+                <td>249-109</td>
+                <td>13</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Alexander Zverev</td>
+                <td>7030</td>
+                <td>25</td>
+                <td>249-109</td>
+                <td>19</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Novak Djokovic</td>
+                <td>6770</td>
+                <td>34</td>
+                <td>1005-204</td>
+                <td>87</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Danil Mevdedev</td>
+                <td>7955</td>
+                <td>26</td>
+                <td>249-109</td>
+                <td>13</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Danil Mevdedev</td>
+                <td>7955</td>
+                <td>26</td>
+                <td>249-109</td>
+                <td>13</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+    
+    
     <!-- <div class="buttons"> -->
         <!-- <a href="#" id="one">no outline</a> -->
         <!-- <a href="#" id="two">outline</a> -->
-    <!-- </div> -->
-
-</body>
-</html>
+        <!-- </div> -->
+        
+    </body>
+    </html>
