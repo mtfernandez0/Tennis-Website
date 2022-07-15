@@ -6,40 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tennis Statistics</title>
     <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
-    <!-- <link rel="stylesheet" media="(max-width: 800px)" href="example.css" /> -->
 </head>
-<body>
 
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Rankings</a></li>
-            <li><a href="/">Statistics</a></li>
-            <li><a href="/">Current Tournaments</a></li>
-        </ul>
+<body>
+    <nav>
+        <div class="navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#ranking">Rankings</a></li>
+                <li><a href="/">Statistics</a></li>
+                <li><a href="#current-tournaments">Calendar</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="front-page">
-        <img src="https://www.atptour.com/-/media/tennis/players/gladiator/2019/02/25/18/13/djokovic_full_ao19.png" alt="Not found" class="img-background">
-
-        <div class="info-container">
-            <span class="info">
-                <img src="https://imgs.search.brave.com/XEQWZ6Q427uTYHrAQeKcVY1-QZg4ZEHsi0L69A7eiso/rs:fit:1200:1080:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDMwMjM2/MTUuanBn" alt="">
+    <div class="front-page" id="home">
+        
+        <img class="slider" id="arrow-left" src="/assets/left_arrow.svg">
+        
+        <section class="slider-body slider-body-show">
+            <img src="https://www.atptour.com/-/media/tennis/players/gladiator/2019/02/25/18/13/djokovic_full_ao19.png" alt="Not found" class="img-background">
+            <div class="info-container">
                 <h1>Novak Djokoviç</h1>
-                <h3>Ranking: 3</h3>
-                <h3>Points: 6770</h3>
-            </span>
-        </div>
+                <h1>Ranking: 3</h1>
+                <h1>Points: 4770</h1>
+            </div>
+        </section>
+
+        <section class="slider-body">
+            <img src="https://cdn.central.rookieme.com/wp-content/uploads/sites/5/1998/08/Alexander-Zverev.png" alt="Not found" class="img-background">
+            <div class="info-container">
+                <h1>Alexander Zverev</h1>
+                <h1>Ranking: 2</h1>
+                <h1>Points: 5750</h1>
+            </div>
+        </section>
+
+        <section class="slider-body">
+            <img src="https://spbopen.ru/wp-content/uploads/2020/09/tsitsipas_full_ao20.png" alt="Not found" class="img-background">
+            <div class="info-container">
+                <h1>Stefanos Tsitsipas</h1>
+                <h1>Ranking: 4</h1>
+                <h1>Points: 4770</h1>
+            </div>
+        </section>
+
+        <img class="slider" id="arrow-right" src="/assets/right_arrow.svg">
+
     </div>
     
-    <div class="ranking-banner">
-        <h1>Singles Men/Women Ranking</h1>
+    <div class="ranking-banner" id="ranking">
+        <h1>Singles Men Ranking</h1>
         <div class="ranking-titles">
             <a href="/"><h3>Singles Men</h3></a>
             <a href="/"><h3>Singles Women</h3></a>
         </div>
     </div>
-
 
     <div class="rankings">
         <table class="table">
@@ -54,113 +76,17 @@
                     <th id="grand-slams">Grand Slams</th>
                 </tr>
             </thead>
-            <tr>
-                <td>1</td>
-                <td>Danil Mevdedev</td>
-                <td>7955</td>
-                <td>26</td>
-                <td>249-109</td>
-                <td>13</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Alexander Zverev</td>
-                <td>7030</td>
-                <td>25</td>
-                <td>249-109</td>
-                <td>19</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Novak Djokovic</td>
-                <td>6770</td>
-                <td>34</td>
-                <td>1005-204</td>
-                <td>87</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Danil Mevdedev</td>
-                <td>7955</td>
-                <td>26</td>
-                <td>249-109</td>
-                <td>13</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Alexander Zverev</td>
-                <td>7030</td>
-                <td>25</td>
-                <td>249-109</td>
-                <td>19</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Novak Djokovic</td>
-                <td>6770</td>
-                <td>34</td>
-                <td>1005-204</td>
-                <td>87</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Danil Mevdedev</td>
-                <td>7955</td>
-                <td>26</td>
-                <td>249-109</td>
-                <td>13</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Alexander Zverev</td>
-                <td>7030</td>
-                <td>25</td>
-                <td>249-109</td>
-                <td>19</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Novak Djokovic</td>
-                <td>6770</td>
-                <td>34</td>
-                <td>1005-204</td>
-                <td>87</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Danil Mevdedev</td>
-                <td>7955</td>
-                <td>26</td>
-                <td>249-109</td>
-                <td>13</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>Danil Mevdedev</td>
-                <td>7955</td>
-                <td>26</td>
-                <td>249-109</td>
-                <td>13</td>
-                <td>1</td>
-            </tr>
+            <tbody id="table-body"></tbody>
         </table>
     </div>
-    
-    
-    <!-- <div class="buttons"> -->
-        <!-- <a href="#" id="one">no outline</a> -->
-        <!-- <a href="#" id="two">outline</a> -->
-        <!-- </div> -->
+
+
+
+    <div class="tournaments" id="current-tournaments">
         
+    </div>
+
+    <script src="slider.js"></script>
+    <script src="app.js"></script>
     </body>
     </html>

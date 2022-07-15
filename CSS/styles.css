@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -15,11 +16,13 @@ body{
 
 .navbar{
     display: flex;
+    position: fixed;
     justify-content: center;
     align-items: center;
     background: rgb(30, 27, 44);
     padding: 30px 10%;
     max-height: 15%;
+    width: 100%;
 }
 
 .nav-links li{
@@ -41,31 +44,62 @@ body{
 /* FRONT PAGE */
 
 .front-page {
-    background: linear-gradient(to right, #09162C, #0d316e);
+    background-size: cover;
+    background-repeat: no-repeat;
+
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
     margin: 0 5%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    padding-top: 80px;
+    align-items: center;
+}
+
+.slider-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s;
+}
+
+.slider-body-show{
+    opacity: 1;
+    pointer-events: unset;
 }
 
 .img-background{
-    margin: 0 5% 0 5%;
-    height: 410px;
+    height: 460px;
 }
 
 .info-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 40px;
+    font-size: 1.5rem;
     color: white;
 }
 
-.info-container .info img{
-    height: 75px;
+
+/*SLIDER*/
+
+.slider{
+    cursor: pointer;
+    padding: 30px 10px 30px 20px;
+    border-radius: 10px 0 0 10px;
+    transition: all 0.3s ease 0s;
+    justify-self: end;
 }
 
-.info h3{
-    font-size: 1.7rem;
+.slider:nth-child(1){
+    border-radius: 0 10px 10px 0;
+    padding: 30px 20px 30px 10px;
+    justify-self: start;
+}
+
+.slider:hover{
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /*RANKINGS*/
@@ -99,7 +133,7 @@ body{
     border: 2px solid #1b2347;
     border-bottom: 0;
     box-shadow: 5px 0 11px 0 #1b2347;
-    transition: all 0.3s ease 0s;
+    transition: all 0.5s ease 0s;
     text-decoration: none;
     color: white;
 }
@@ -151,6 +185,10 @@ body{
 
 #record, #grand-slams{
     width: 404px;
+}
+
+.table #hide{
+    display: none;
 }
 
 @media only screen and (max-width: 625px) {
