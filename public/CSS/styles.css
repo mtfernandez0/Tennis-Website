@@ -23,6 +23,7 @@ body{
     padding: 30px 10%;
     max-height: 15%;
     width: 100%;
+    z-index: 999;
 }
 
 .nav-links li{
@@ -44,6 +45,7 @@ body{
 /* FRONT PAGE */
 
 .front-page {
+    background: linear-gradient(to right, #051328, #113363);
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -119,8 +121,13 @@ body{
     flex-direction: column;
 }
 
-.ranking-banner h1{
+.titles{
     padding-bottom: 20px;
+    display: none;
+}
+
+.table-title-show{
+    display: flex;
 }
 
 .ranking-titles{
@@ -128,7 +135,7 @@ body{
     justify-content: flex-end;
 }
 
-.ranking-titles a{
+.ranking-titles h3{
     padding: 10px 5px;
     border: 2px solid #1b2347;
     border-bottom: 0;
@@ -138,9 +145,10 @@ body{
     color: white;
 }
 
-.ranking-titles a:hover{
+.ranking-titles h3:hover{
     box-shadow: 5px 0px 19px 5px;
     color: white;
+    cursor: pointer;
 }
 
 .rankings {
@@ -148,6 +156,9 @@ body{
     background-color: white;
     border: 1px solid #222;
     box-shadow: 0 6px 10px 0 rgba(11, 11, 11, 1);
+
+    max-height: 443px;
+    overflow: auto;
 }
 
 .table{
@@ -157,10 +168,18 @@ body{
     border: 1px solid #222;
 }
 
+#table-body-men{
+    max-height: 280px;
+    overflow: auto;
+}
+
 .table thead{
     background-color: rgb(221, 221, 221);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
     border: 1px solid black;
+
+    position: sticky;
+    top: 0;
 }
 
 .table td, th{
@@ -169,26 +188,118 @@ body{
     border-bottom: 1px solid black;
     text-align: center;
     font-weight: bolder;
+    font-size: 1rem;
 }
 
-#rank, #age{
-    width: 100px;
+.table-body{
+    display: none;
+}
+
+.table-body-show{
+    display: table-row-group;
+}
+
+#rank, #height{
+    min-width: 100px;
 }
 
 #player{
-    width: 400px;
+    min-width: 300px;
 }
 
 #points, #titles{
     width: 150px;
 }
 
-#record, #grand-slams{
+#pro-since{
+    width: 200px;
+}
+
+#record{
     width: 404px;
 }
 
 .table #hide{
     display: none;
+}
+
+
+/*CALENDAR*/
+
+.tournaments{
+    margin: 2% 5%;
+    border-radius: 20px;
+    border: 1px solid black;
+    color: white;
+    background: #09162C;
+}
+
+.tournaments h1{
+    padding: 2%;
+}
+
+.tournament-container{
+    height: 200px;
+    display: grid;
+    grid-template-columns: 30px 1fr 30px;
+    align-items: center;
+}
+
+.tournament-arrow{
+    margin-left: 5px;
+    padding: 40px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.tournament-arrow-right{
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.tournament-arrow:hover{
+    background: rgb(47, 125, 161);
+    color: white;
+}
+
+.tournament-list{
+    margin: 10px;
+    overflow: hidden;
+}
+
+.tournament-list-element{
+    margin: 0 15px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: rgb(24, 92, 24);
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dots-glider{
+    padding-bottom: 10px;
+}
+
+.dots-glider .glider-dot{
+    display: block;
+    width: 30px;
+    height: 4px;
+    border-radius: 0;
+    background: #fff;
+    opacity: .2;
+}
+
+.dots-glider .glider-dot:hover{
+    opacity: .5;
+}
+
+.dots-glider .glider-dot.active{
+    opacity: 1;
 }
 
 @media only screen and (max-width: 625px) {
