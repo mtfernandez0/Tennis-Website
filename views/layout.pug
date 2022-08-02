@@ -1,0 +1,79 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Tennis Website
+        script(src= "https://kit.fontawesome.com/72f640b0ab.js", crossorigin="anonymous")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css")
+        link(rel="stylesheet", type="text/css", href="/CSS/styles.css")
+    body
+        
+        nav
+            div(class="navbar")
+                ul(class="nav-links")
+                    li
+                        a(href="#home") Home
+                    li
+                        a(href="#ranking") Rankings
+                    li
+                        a(href="#") Statistics
+                    li
+                        a(href="#calendar") Calendar
+        
+        div(class="front-page", id="home")
+            img(class="slider", id="arrow-left", src="./img/left_arrow.svg")
+
+            each info in dataFrontPage
+                if info.rank == 1
+                    section(class="slider-body slider-body-show")
+                        block frontPage
+                else
+                    section(class="slider-body")
+                        block frontPage
+                
+            img(class="slider", id="arrow-right", src="./img/right_arrow.svg")
+
+        div(class="ranking-banner", id="ranking")
+            h1(class="titles table-title-show") Singles Men Ranking
+            h1(class="titles") Singles Women Ranking
+
+            div(class="ranking-titles")
+
+                h3(id="men-table") Singles Men
+                h3(id="women-table") Singles Women
+
+        div(class="rankings")
+            table(class="table" id="table-ranks")
+                thead
+                    tr
+                        th(id="rank") Rank
+                        th(id="player") Player
+                        th(id="points") Points
+                        th(id="pro-since") Turned Pro
+                        th(id="height") Height
+                        th(id="record") Match Record W/L
+                        th(id="titles") Titles
+                tbody(class="table-body table-body-show" id="table-body-men")
+                    block table 
+                tbody(class="table-body" id="table-body-women")
+                    block table
+
+        div(class="tournaments" id="calendar")
+            h1 Tournaments
+
+            div(class="tournament-container")
+                button(class="tournament-arrow tournament-arrow-left")
+                    i(class="fa-solid fa-chevron-left")
+                
+                div(class="tournament-list" id="tournament-elements")
+                    block tournaments
+
+                button(class="tournament-arrow tournament-arrow-right")
+                    i(class="fa-solid fa-chevron-right")
+            
+            div(class="dots-glider")
+
+        script(src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js")
+        script(src="src/index.js")

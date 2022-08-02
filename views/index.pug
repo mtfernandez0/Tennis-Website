@@ -1,0 +1,29 @@
+extends layout
+
+block frontPage
+
+    img(src=`${info.src}` class="img-background")
+    div(class="info-container")
+        h1= info.fullname
+        h1 Ranking: #{ info.rank }
+        h1 Points: #{ info.points }
+
+block table
+    each data, i in tableInfo
+        tr 
+            td= i + 1
+            td= data.name
+            td= data.points
+            td= data.pro_since 
+            td= data.height
+            td= data.match_record
+            td= data.titles
+
+block tournaments
+    each tournament in tournaments
+        div(class="tournament-list-element")
+            h2= tournament
+            p
+                strong From 29-08-2022 
+                br
+                strong 11-09-2022

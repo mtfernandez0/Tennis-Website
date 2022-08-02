@@ -1,5 +1,3 @@
-const competitions = [];
-
 function levelCheck(arg) {
   return (
     arg === "atp_250" ||
@@ -16,31 +14,20 @@ function categoryCheck(arg) {
   return arg === "WTA" || arg === "ATP";
 }
 
-export function getInfoCompetitions(data) {
-  const list = document.getElementById('tournament-elements');
-  let dataHTML = ``;
+function getCompetitions(arg){
+  const competitions = []
 
-  for (let i = 0; i < data.competitions.length; i++) {
+  for (let i = 0; i < arg.competitions.length; i++) {
     if (
-      typeof data.competitions[i].level !== "undefined" &&
-      data.competitions[i].type === "singles" &&
-      categoryCheck(data.competitions[i].category.name) &&
-      levelCheck(data.competitions[i].level)
+      typeof arg.competitions[i].level !== "undefined" &&
+      arg.competitions[i].type === "singles" &&
+      categoryCheck(arg.competitions[i].category.name) &&
+      levelCheck(arg.competitions[i].level)
     ) {
-        dataHTML += `<div class="tournament-list-element">
-                    <h2>${data.competitions[i].name}</h2>
-                    <p><strong>From 29-08-2022 <br>to 11-09-2022</br></strong></p></div>`;
+      competitions.push(arg.competitions[i].name);
     }
   }
-  list.innerHTML = dataHTML;
-
-  new Glider(document.querySelector(".tournament-list"), {
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    dots: '.dots-glider',
-    arrows: {
-      prev: '.tournament-arrow-left',
-      next: '.tournament-arrow-right'
-    }
-  });
+  return competitions;
 }
+
+module.exports = { getCompetitions };

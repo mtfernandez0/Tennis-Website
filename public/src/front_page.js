@@ -12,24 +12,21 @@ const srcPlayers = [
   "unknown_player.png",
 ];
 
-const slider_body = (fullname, rank, points, src) => {
-    return `<section class="slider-body ${rank === 1 ? "slider-body-show" : ""}">
-    <img src="${src}" class="img-background"><div class="info-container">
-    <h1>${fullname}</h1><h1>Ranking: ${rank}</h1><h1>Points: ${points}</h1></div></section>`
-};
+function loadFrontPage(arg) {
+  const data = [];
 
-export function loadFrontPage(data) {
-    const front_page = document.getElementById("arrow-left");
-    let dataHtml = ``;
+  for (let i = 0; i < 10; i++) {
+    let infoBase = arg.rankings[0].competitor_rankings[i];
 
-    for (let i = 0; i < 10; i++) {
-        let infoPlayer = data.rankings[0].competitor_rankings[i];
-        dataHtml += slider_body(
-        infoPlayer.competitor.name,
-        infoPlayer.rank,
-        infoPlayer.points,
-        srcPlayers[i]
-        );
-    }
-    front_page.insertAdjacentHTML('afterend', dataHtml);
+    let dataObj = {
+      rank: infoBase.rank,
+      fullname: infoBase.competitor.name,
+      src: srcPlayers[i],
+      points: infoBase.points,
+    };
+    data.push(dataObj);
+  }
+  return data;
 }
+
+module.exports = { loadFrontPage };

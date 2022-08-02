@@ -1,54 +1,50 @@
-import {loadFrontPage} from "./front_page.js"
-import {changePosition, changeTable} from "./slider.js"
-import {getInfoCompetitions} from "./calendar.js"
-// import {loadTableData} from "./rankings.js"
-
-
-const atp_id_players = []
-const wta_id_players = []
-
-// const base_Api = "api.sportradar.com/tennis/trial/v3/en/";
-
-// const options = {
-//   method: 'GET',
-//   headers: new Headers({
-//       'Content-Type': 'application/json',
-//       'Access-Control-Allow-Origin': '*',
-//   }),
-// };
-
-// const corsAnywhere = `https://cors-anywhere.herokuapp.com/`;
-
-// fetch(corsAnywhere + `${base_Api}competitions.json?api_key=${api_Key}`)
-// .then((response) => response.json())
-// .then((data) => console.log(data))
-// .catch((err) => console.log(err))
-
-fetch("./ATP_WTA_Rankings.json")
-.then(res => res.json())
-.then(data => {
-        loadFrontPage(data);
-        //loadTableData(load_atp_id_players(data), "table-body-men");
-        //loadTableData(load_wta_id_players(data), "table-body-women");
+window.addEventListener('load', function(){
+  new Glider(document.querySelector(".tournament-list"), {
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    dots: '.dots-glider',
+    arrows: {
+      prev: '.tournament-arrow-left',
+      next: '.tournament-arrow-right'
     }
-)
-.catch(error => console.log(error))
+  });
+});
 
-fetch("./All_Competitons.json")
-.then(res => res.json())
-.then(json => {
-    getInfoCompetitions(json);
-})
-.catch(err => console.log(err))
+const arrowNext = document.querySelector("#arrow-right");
+const arrowPrevious = document.querySelector("#arrow-left");
+const menTable = document.querySelector("#men-table");
+const womenTable = document.querySelector("#women-table");
+let showingElement = 0;
+let showingTable = 0;
 
-function load_atp_id_players(data){
-    for (let i = 0; i < 25; i++) {
-        atp_id_players.push(data.rankings[0].competitor_rankings[i].competitor.id)
-    }
+menTable.addEventListener("click", () => changeTable(0));
+womenTable.addEventListener("click", () => changeTable(1));
+arrowNext.addEventListener("click", () => changePosition(1));
+arrowPrevious.addEventListener("click", () => changePosition(-1));
+
+function changePosition(change) {
+  const sliders = [...document.querySelectorAll(".slider-body")];
+  sliders[showingElement].classList.remove("slider-body-show");
+
+  showingElement =
+    change + showingElement < 0
+      ? sliders.length - 1
+      : (change + showingElement) % sliders.length;
+
+  sliders[showingElement].classList.add("slider-body-show");
 }
 
-function load_wta_id_players(data){
-    for (let i = 0; i < 25; i++) {
-        wta_id_players.push(data.rankings[1].competitor_rankings[i].competitor.id)
-    }
+function changeTable(table){
+  if(showingTable != table){
+    const titles = [...document.querySelectorAll(".titles")];
+    const tables = [...document.querySelectorAll(".table-body")];
+    console.log(titles)
+    console.log(tables)
+    titles[showingTable].classList.remove("table-title-show");
+    tables[showingTable].classList.remove("table-body-show");
+
+    showingTable = table;
+    titles[showingTable].classList.add("table-title-show");
+    tables[showingTable].classList.add("table-body-show");
+  }
 }
