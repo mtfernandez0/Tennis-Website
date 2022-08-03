@@ -10,20 +10,19 @@ html(lang="en")
         link(rel="stylesheet", type="text/css", href="/CSS/styles.css")
     body
         
-        nav
-            div(class="navbar")
-                ul(class="nav-links")
-                    li
-                        a(href="#home") Home
-                    li
-                        a(href="#ranking") Rankings
-                    li
-                        a(href="#") Statistics
-                    li
-                        a(href="#calendar") Calendar
+        div(class="navbar")
+            ul(class="nav-links")
+                li
+                    a(href="#home") Home
+                li
+                    a(href="#ranking") Rankings
+                li
+                    a(href="#") Statistics
+                li
+                    a(href="#calendar") Calendar
         
-        div(class="front-page", id="home")
-            img(class="slider", id="arrow-left", src="./img/left_arrow.svg")
+        div(class="front-page" id="home")
+            img(class="slider" id="arrow-left" src="./img/left_arrow.svg")
 
             each info in dataFrontPage
                 if info.rank == 1
@@ -52,13 +51,13 @@ html(lang="en")
                         th(id="player") Player
                         th(id="points") Points
                         th(id="pro-since") Turned Pro
-                        th(id="height") Height
+                        th(id="height") Height(cm)
                         th(id="record") Match Record W/L
                         th(id="titles") Titles
                 tbody(class="table-body table-body-show" id="table-body-men")
-                    block table 
+                    block men_table
                 tbody(class="table-body" id="table-body-women")
-                    block table
+                    block women_table
 
         div(class="tournaments" id="calendar")
             h1 Tournaments
@@ -77,3 +76,5 @@ html(lang="en")
 
         script(src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js")
         script(src="src/index.js")
+
+                

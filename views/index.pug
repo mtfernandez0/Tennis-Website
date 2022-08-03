@@ -8,8 +8,8 @@ block frontPage
         h1 Ranking: #{ info.rank }
         h1 Points: #{ info.points }
 
-block table
-    each data, i in tableInfo
+block men_table
+    each data, i in tableATP
         tr 
             td= i + 1
             td= data.name
@@ -19,11 +19,20 @@ block table
             td= data.match_record
             td= data.titles
 
+block women_table
+    each data, i in tableWTA
+        tr 
+            td= i + 1
+            td= data.name
+            td= data.points
+            td= data.pro_since 
+            td= data.height
+            td= data.match_record
+            td= data.titles           
+
 block tournaments
-    each tournament in tournaments
+    each tournament of tournaments
         div(class="tournament-list-element")
-            h2= tournament
+            h2= tournament.competition_name
             p
-                strong From 29-08-2022 
-                br
-                strong 11-09-2022
+            strong= tournament.competition_level

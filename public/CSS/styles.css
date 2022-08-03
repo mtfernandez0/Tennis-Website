@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -12,17 +13,17 @@ body{
 }
 
 /* NAVBAR */
-
 .navbar{
-    display: flex;
     position: fixed;
+    display: flex;
     justify-content: center;
     align-items: center;
     background: rgb(30, 27, 44);
     padding: 30px 10%;
     max-height: 15%;
     width: 100%;
-    z-index: 999;
+    z-index: 1;
+    top: 0px;
 }
 
 .nav-links li{
@@ -38,22 +39,19 @@ body{
 }
 
 .nav-links li a:hover{
-    color:red;
+    color:rgb(46, 211, 223);
 }
 
 /* FRONT PAGE */
-
 .front-page {
     background: linear-gradient(to right, #051328, #113363);
-    background-size: cover;
-    background-repeat: no-repeat;
-
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
     margin: 0 5%;
     display: grid;
     grid-template-columns: 100px 1fr 100px;
     padding-top: 80px;
     align-items: center;
+    border-radius: 10px;
 }
 
 .slider-body{
@@ -265,6 +263,8 @@ body{
 .tournament-list{
     margin: 10px;
     overflow: hidden;
+
+    display: flex;
 }
 
 .tournament-list-element{
@@ -272,7 +272,7 @@ body{
     padding: 5px;
     border: 1px solid white;
     border-radius: 20px;
-    background-color: rgb(24, 92, 24);
+    background-color: rgb(39, 145, 113);
     min-height: 150px;
 
     display: flex;
