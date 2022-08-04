@@ -61,4 +61,8 @@ function loadFrontPage(arg) {
   return data;
 }
 
-module.exports = { loadFrontPage };
+const loadSrcPlayer = (arg) => {
+  srcPlayers.set(arg.competitor_name, arg.competitor_imgUrl)
+}
+
+module.exports = { loadFrontPage, loadSrcPlayer };

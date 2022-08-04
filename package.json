@@ -11,7 +11,7 @@
     "nodemon": "^2.0.19"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "npx nodemon app.js"
   },
   "name": "mtfernandez0.github.io",
   "version": "1.0.0",
