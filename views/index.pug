@@ -1,34 +1,33 @@
 extends layout
 
 block frontPage
-
     img(src=`${info.src}` class="img-background")
     div(class="info-container")
-        h1= info.fullname
+        h1= info.name
         h1 Ranking: #{ info.rank }
         h1 Points: #{ info.points }
 
 block men_table
     each data, i in tableATP
         tr 
-            td= i + 1
+            td= data.value.rank
             td= data.name
-            td= data.points
-            td= data.pro_since 
-            td= data.height
-            td= data.match_record
-            td= data.titles
+            td= data.value.points
+            td= data.value.pro_since 
+            td= data.value.height
+            td= data.value.record
+            td= data.value.titles
 
 block women_table
     each data, i in tableWTA
         tr 
-            td= i + 1
+            td= data.value.rank
             td= data.name
-            td= data.points
-            td= data.pro_since 
-            td= data.height
-            td= data.match_record
-            td= data.titles           
+            td= data.value.points
+            td= data.value.pro_since 
+            td= data.value.height
+            td= data.value.record
+            td= data.value.titles           
 
 block tournaments
     each tournament of tournaments

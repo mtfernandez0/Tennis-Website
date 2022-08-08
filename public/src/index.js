@@ -38,8 +38,6 @@ function changeTable(table){
   if(showingTable != table){
     const titles = [...document.querySelectorAll(".titles")];
     const tables = [...document.querySelectorAll(".table-body")];
-    console.log(titles)
-    console.log(tables)
     titles[showingTable].classList.remove("table-title-show");
     tables[showingTable].classList.remove("table-body-show");
 

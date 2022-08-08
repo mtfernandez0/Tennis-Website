@@ -42,27 +42,33 @@ const srcPlayers = new Map([
   ["unknown", "unknown_player.png"],
 ]);
 
-function loadFrontPage(arg) {
-  const data = [];
-
-  for (let i = 0; i < 10; i++) {
-    let infoBase = arg.rankings[0].competitor_rankings[i];
-
-    let dataObj = {
-      rank: infoBase.rank,
-      fullname: infoBase.competitor.name,
-      src: srcPlayers.has(infoBase.competitor.name)
-        ? srcPlayers.get(infoBase.competitor.name)
-        : srcPlayers.has("unknown"),
-      points: infoBase.points,
-    };
-    data.push(dataObj);
-  }
-  return data;
+function loadimgUrls(arg, cb) {
+    for (let i = 0; i < arg.length; i++) {
+      srcPlayers.set(arg[i].player_name, arg[i].imgUrl)
+    }
+    cb();
 }
 
-const loadSrcPlayer = (arg) => {
-  srcPlayers.set(arg.competitor_name, arg.competitor_imgUrl)
+const loadFrontPage = async (...args) => {
+  var res;
+  loadimgUrls(args[1], function(){
+    const data = new Array(10);
+    for (let i = 0; i < 10; i++) {
+      let info = args[0].tableATP[i];
+      
+      let dataObj = {
+        rank: info.value.rank,
+        name: info.name,
+        src: srcPlayers.has(info.name)
+        ? srcPlayers.get(info.name)
+        : srcPlayers.get("unknown"),
+        points: info.value.points,
+      };
+      data[i] = dataObj;
+    }
+    res = data;
+  });
+  return res;
 }
 
-module.exports = { loadFrontPage, loadSrcPlayer };
+module.exports = { loadFrontPage };

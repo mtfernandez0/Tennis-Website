@@ -20,7 +20,7 @@ body{
     align-items: center;
     background: rgb(30, 27, 44);
     padding: 30px 10%;
-    max-height: 15%;
+    height: 80px;
     width: 100%;
     z-index: 1;
     top: 0px;
@@ -47,9 +47,9 @@ body{
     background: linear-gradient(to right, #051328, #113363);
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
     margin: 0 5%;
+    margin-top: 80px;
     display: grid;
     grid-template-columns: 100px 1fr 100px;
-    padding-top: 80px;
     align-items: center;
     border-radius: 10px;
 }
@@ -261,6 +261,7 @@ body{
 }
 
 .tournament-list{
+    scroll-behavior: auto;
     margin: 10px;
     overflow: hidden;
 
@@ -272,7 +273,7 @@ body{
     padding: 5px;
     border: 1px solid white;
     border-radius: 20px;
-    background-color: rgb(39, 145, 113);
+    background-color: rgb(19, 112, 84);
     min-height: 150px;
 
     display: flex;
