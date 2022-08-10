@@ -6,3 +6,6 @@ Simple website that shows the top 25 players(ATP/WTA) and tournaments of the yea
 
 # Installation
 You can just download the code and use the comand npm start to run a local server(download dependencies if necesary).
+
+# To Run it
+npm run dev
