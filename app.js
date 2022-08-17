@@ -6,6 +6,7 @@ const path = require('path')
 const { loadFrontPage }= require('./functions/functions')
 const express = require("express");
 const router = require("./routes/routes");
+var favicon = require('serve-favicon')
 
 //Inits
 require('./database')
@@ -14,6 +15,9 @@ const app = express();
 //Setting views
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+
+//Setting favicon
+app.use(favicon("./favicon_io/favicon.ico"))
 
 //Middlewares
 app.use(express.urlencoded({ extended: false }));
