@@ -1,13 +1,24 @@
-require("dotenv").config();
-require("./config");
-const { loadFrontPage } = require("./public/src/front_page.js");
+const { PORT, MANTAINER_KEY } = require("./config")
+const ImgUrls = require('./models/src_img')
+const { Tables } = require('./models/table')
+const { Tournaments } = require('./models/tournaments')
+const path = require('path')
+const { loadFrontPage }= require('./functions/functions')
 const express = require("express");
+const router = require("./routes/routes");
+
+//Inits
+require('./database')
 const app = express();
-const router = require("./public/src/manage.js");
-const axios = require("axios");
-let defines = require("./data/defines.json");
-let date = new Date();
-let last_update = new Date(defines.last_update);
+
+//Setting views
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+
+//Middlewares
+app.use(express.urlencoded({ extended: false }));
+app.use("/", router);
+app.use(`/${MANTAINER_KEY}`, router);
 
 //Static Files
 app.use(express.static("public"));
@@ -15,34 +26,21 @@ app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/src', express.static(__dirname + 'public/src'))
 app.use('/img', express.static(__dirname + 'public/img'))
 
-//Set Views
-app.set("views", "./views");
-app.set("view engine", "pug");
-
-app.all('/', async (req, res, next) => {
-  if (
-    date.getMonth() !== last_update.getMonth() ||
-    date.getFullYear() !== last_update.getFullYear()
-  ) {
-    await axios.patch(`http://localhost:3000/manage/${process.env.MANTAINER_KEY}`)
-  }
-  next()
-})
 
 app.get("/", async (req, res) => {
-  let dataFrontPage = await loadFrontPage(defines.rankings, defines.src_img);
+
+  let src = await ImgUrls.findOne()
+  let tables = await Tables.findOne()
+  let tournaments = await Tournaments.findOne()
+
   res.render("index", {
-    dataFrontPage: dataFrontPage,
-    tableATP: defines.rankings.tableATP,
-    tableWTA: defines.rankings.tableWTA,
-    tournaments: defines.tournaments
-  });
+    dataFrontPage: await loadFrontPage(tables.tableATP, src.player),
+    tableATP: tables.tableATP,
+    tableWTA: tables.tableWTA,
+    tournaments: tournaments.tournament
+  })
 })
 
-app.set("port", 3000);
-
-app.use("/manage", router);
-
-app.listen(process.env.PORT || app.get("port"), () => {
-  console.log("Server on port", app.get("port"));
+app.listen(PORT, () => {
+  console.log("Server on port", PORT);
 });

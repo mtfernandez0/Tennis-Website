@@ -19,9 +19,11 @@ html(lang="en")
                 li
                     a(href="#") Statistics
                 li
-                    a(href="#calendar") Calendar
+                    a(href="#calendar") Tournaments
         
-        div(class="front-page" id="home")
+        a(name="home")
+        
+        div(class="front-page")
             img(class="slider" id="arrow-left" src="./img/left_arrow.svg")
 
             each info in dataFrontPage

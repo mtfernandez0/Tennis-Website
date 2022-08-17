@@ -5,11 +5,13 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    letter-spacing: 1px;
 }
 
 body{
     background-color: #D8D8D8;
     font-family: 'Roboto', sans-serif, monospace;
+    padding-top: 80px;
 }
 
 /* NAVBAR */
@@ -19,7 +21,6 @@ body{
     justify-content: center;
     align-items: center;
     background: rgb(30, 27, 44);
-    padding: 30px 10%;
     height: 80px;
     width: 100%;
     z-index: 1;
@@ -47,11 +48,10 @@ body{
     background: linear-gradient(to right, #051328, #113363);
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
     margin: 0 5%;
-    margin-top: 80px;
     display: grid;
     grid-template-columns: 100px 1fr 100px;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 .slider-body{
@@ -308,19 +308,6 @@ body{
 
 
 /*
-a{
-    background: #689f3f;
-    text-decoration: none;
-    padding: 1.2rem 1.5rem;
-    color: black;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin: 0 20px;
-}
-
-#one{
-    border: 0.2rem solid #222;
-}
 #two{
     outline-width: 0.2rem;
     outline-style: solid;
