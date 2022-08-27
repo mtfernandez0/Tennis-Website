@@ -1,50 +1,50 @@
-const { PORT, MANTAINER_KEY } = require("./config")
+'use strict'
+
+const { PORT, MANTAINER_KEY } = require('./config')
 const ImgUrls = require('./models/src_img')
 const { Tables } = require('./models/table')
 const { Tournaments } = require('./models/tournaments')
 const path = require('path')
-const { loadFrontPage }= require('./functions/functions')
-const express = require("express");
-const router = require("./routes/routes");
-var favicon = require('serve-favicon')
+const { loadFrontPage } = require('./functions/functions')
+const express = require('express')
+const router = require('./routes/routes')
+const favicon = require('serve-favicon')
 
-//Inits
+// Inits
 require('./database')
-const app = express();
+const app = express()
 
-//Setting views
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+// Setting views
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'pug')
 
-//Setting favicon
-app.use(favicon("./favicon_io/favicon.ico"))
+// Middlewares
+app.use(favicon('./favicon_io/favicon.ico'))
+app.use(express.urlencoded({ extended: false }))
+app.use('/', router)
+app.use(`/${MANTAINER_KEY}`, router)
+app.use('/rankings', router)
 
-//Middlewares
-app.use(express.urlencoded({ extended: false }));
-app.use("/", router);
-app.use(`/${MANTAINER_KEY}`, router);
-
-//Static Files
-app.use(express.static("public"));
+// Static Files
+app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/src', express.static(__dirname + 'public/src'))
 app.use('/img', express.static(__dirname + 'public/img'))
 
+app.get('/', async (req, res) => {
+  const src = await ImgUrls.findOne()
+  const tables = await Tables.findOne()
+  const tournaments = await Tournaments.findOne()
 
-app.get("/", async (req, res) => {
-
-  let src = await ImgUrls.findOne()
-  let tables = await Tables.findOne()
-  let tournaments = await Tournaments.findOne()
-
-  res.render("index", {
+  res.render('index', {
     dataFrontPage: await loadFrontPage(tables.tableATP, src.player),
-    tableATP: tables.tableATP,
-    tableWTA: tables.tableWTA,
+    showTable: 'men',
+    sortAsc: false,
+    table: tables.tableATP,
     tournaments: tournaments.tournament
   })
 })
 
 app.listen(PORT, () => {
-  console.log("Server on port", PORT);
-});
+  console.log('Server on port', PORT)
+})

@@ -120,10 +120,6 @@ body{
 
 .titles{
     padding-bottom: 20px;
-    display: none;
-}
-
-.table-title-show{
     display: flex;
 }
 
@@ -165,7 +161,7 @@ body{
     border: 1px solid #222;
 }
 
-#table-body-men{
+.table-body{
     max-height: 280px;
     overflow: auto;
 }
@@ -188,12 +184,19 @@ body{
     font-size: 1rem;
 }
 
-.table-body{
-    display: none;
+.table th i{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transition: all 0.5s ease 0s;
 }
 
-.table-body-show{
-    display: table-row-group;
+.table th a i:hover{
+    padding-left: 15px;
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    opacity: 1;
 }
 
 #rank, #height{
@@ -215,11 +218,6 @@ body{
 #record{
     width: 404px;
 }
-
-.table #hide{
-    display: none;
-}
-
 
 /*CALENDAR*/
 
@@ -301,18 +299,3 @@ body{
 .dots-glider .glider-dot.active{
     opacity: 1;
 }
-
-@media only screen and (max-width: 625px) {
-
-}
-
-
-/*
-#two{
-    outline-width: 0.2rem;
-    outline-style: solid;
-    outline-color: #222;
-    outline: 0.2rem solid #222;
-    outline-offset: 10px;
-}
-*/

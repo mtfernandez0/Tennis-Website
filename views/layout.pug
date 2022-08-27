@@ -13,7 +13,7 @@ html(lang="en")
         div(class="navbar")
             ul(class="nav-links")
                 li
-                    a(href="#home") Home
+                    a(href="#") Home
                 li
                     a(href="#ranking") Rankings
                 li
@@ -37,29 +37,34 @@ html(lang="en")
             img(class="slider", id="arrow-right", src="./img/right_arrow.svg")
 
         div(class="ranking-banner", id="ranking")
-            h1(class="titles table-title-show") Singles Men Ranking
-            h1(class="titles") Singles Women Ranking
+            if showTable === 'men'
+                h1(class="titles") Singles Men Ranking
+            else
+                h1(class="titles") Singles Women Ranking
 
             div(class="ranking-titles")
 
-                h3(id="men-table") Singles Men
-                h3(id="women-table") Singles Women
+                a(href="/rankings?table=men")
+                    h3(id="men-table") Singles Men
+                a(href="/rankings?table=women")
+                    h3(id="women-table") Singles Women
 
         div(class="rankings")
             table(class="table" id="table-ranks")
                 thead
                     tr
                         th(id="rank") Rank
+                            a(href=`/rankings?table=${showTable}&filter=rank&sortAsc=${sortAsc}`)
+                                block chooseArrow
                         th(id="player") Player
                         th(id="points") Points
                         th(id="pro-since") Turned Pro
-                        th(id="height") Height(cm)
+                        th(id="height") Height
                         th(id="record") Match Record W/L
                         th(id="titles") Titles
-                tbody(class="table-body table-body-show" id="table-body-men")
-                    block men_table
-                tbody(class="table-body" id="table-body-women")
-                    block women_table
+
+                tbody(class="table-body")
+                    block tables
 
         div(class="tournaments" id="calendar")
             h1 Tournaments

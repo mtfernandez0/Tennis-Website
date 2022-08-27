@@ -7,27 +7,22 @@ block frontPage
         h1 Ranking: #{ info.rank }
         h1 Points: #{ info.points }
 
-block men_table
-    each data, i in tableATP
-        tr 
-            td= data.value.rank
-            td= data.name
-            td= data.value.points
-            td= data.value.pro_since 
-            td= data.value.height
-            td= data.value.record
-            td= data.value.titles
+block chooseArrow
+    if sortAsc
+        i(class="arrows-tables fa-solid fa-chevron-down" id="arrow-rank")
+    else
+        i(class="arrows-tables fa-solid fa-chevron-up" id="arrow-rank")
 
-block women_table
-    each data, i in tableWTA
+block tables
+    each data, i in table
         tr 
-            td= data.value.rank
+            td= data.rank
             td= data.name
             td= data.value.points
             td= data.value.pro_since 
             td= data.value.height
             td= data.value.record
-            td= data.value.titles           
+            td= data.value.titles        
 
 block tournaments
     each tournament of tournaments
